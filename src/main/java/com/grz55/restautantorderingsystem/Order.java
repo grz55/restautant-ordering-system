@@ -1,25 +1,30 @@
 package com.grz55.restautantorderingsystem;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
+@Table(name = "restaurant_order")
 public class Order {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Transient
     private LocalDateTime startTime;
+
+    @Transient
     private LocalDateTime readyTime;
+
+    @Transient
     private LocalDateTime paidTime;
 
-    private Table table;
+    @Transient
+    private RestaurantTable restaurantTable;
 
+    @Transient
     private List<OrderedProduct> orderedProductList;
 
     private OrderStatus orderStatus;
@@ -27,9 +32,9 @@ public class Order {
     public Order() {
     }
 
-    public Order(LocalDateTime startTime, Table table) {
+    public Order(LocalDateTime startTime, RestaurantTable restaurantTable) {
         this.startTime = startTime;
-        this.table = table;
+        this.restaurantTable = restaurantTable;
     }
 
     public Long getId() {
@@ -64,12 +69,12 @@ public class Order {
         this.paidTime = paidTime;
     }
 
-    public Table getTable() {
-        return table;
+    public RestaurantTable getTable() {
+        return restaurantTable;
     }
 
-    public void setTable(Table table) {
-        this.table = table;
+    public void setTable(RestaurantTable restaurantTable) {
+        this.restaurantTable = restaurantTable;
     }
 
     public List<OrderedProduct> getOrderedProductList() {
@@ -95,7 +100,7 @@ public class Order {
                 ", startTime=" + startTime +
                 ", readyTime=" + readyTime +
                 ", paidTime=" + paidTime +
-                ", table=" + table +
+                ", table=" + restaurantTable +
                 ", orderedProductList=" + orderedProductList +
                 ", orderStatus=" + orderStatus +
                 '}';

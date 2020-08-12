@@ -1,12 +1,10 @@
 package com.grz55.restautantorderingsystem;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
-public class Table {
+@Table
+public class RestaurantTable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,10 +12,10 @@ public class Table {
 
     private int number;
 
-    public Table() {
+    public RestaurantTable() {
     }
 
-    public Table(int number) {
+    public RestaurantTable(int number) {
         this.number = number;
     }
 

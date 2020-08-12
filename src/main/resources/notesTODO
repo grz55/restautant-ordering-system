@@ -1,0 +1,61 @@
+admin:
+dodaj stolik
+usuń stolik
+dodaj pozycje menu
+usun pozycje menu
+
+manager:
+dodaj stolik
+usuń stolik
+dodaj pozycje menu
+usun pozycje menu
+
+kelner
+zajmij stolik
+stolik -> dodaj zamówienie (lista produktów z menu (produkt -> liczba), dodatkowe życzenia)
+stolik -> edytuj zamówienie (wyślij powiadomienie do listy zamówień dla kucharzy)
+stolik -> anuluj zamówienie (wyślij powiadomienie do listy zamówień dla kucharzy)
+stolik -> finalizuj (opłata)
+zwolnij stolik
+
+lista gotowych zamówień
+
+==================
+
+stolik (wolny, zajęty)
+zamówienie (oczekujące, finalizuj)
+
+TABELE:
+
+Zamówienie:
+long id
+LocalDateTime czasRozpoczęcia
+LocalDateTIme czasGotowe
+LocalDateTime czasZapłacone
+Stolik stolik
+List<ZamówionyProdukt> zamówione
+String komentarz
+ZamówienieStatus status
+
+finalizuj()
+
+ZamówienieStatus
+W_PRZYGOTOWANIU
+GOTOWE
+ZAPŁACONE
+
+ZamówionyProdukt
+long id
+Menu menu
+int quantity
+
+Menu
+id
+nazwa
+
+
+Stolik
+id
+numer
+
+

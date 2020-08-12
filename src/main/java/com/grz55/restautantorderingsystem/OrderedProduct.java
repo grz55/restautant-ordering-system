@@ -1,9 +1,6 @@
 package com.grz55.restautantorderingsystem;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class OrderedProduct {
@@ -12,6 +9,7 @@ public class OrderedProduct {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Transient
     private MenuProduct menuProduct;
 
     private int quantity;
